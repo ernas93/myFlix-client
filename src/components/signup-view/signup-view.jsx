@@ -17,15 +17,15 @@ export const SignupView = () => {
         };
 
         fetch("https://movie-api-es93.herokuapp.com/users", {
-            method: POST,
+            method: "POST",
             body: JSON.stringify(data),
             headers: {
-                "Conten-Type": "application/json"
+                "Content-Type": "application/json"
             }
         }).then((response) => {
             if (response.ok) {
                 alert("Signup successful!");
-                window.location.reload();
+                //window.location.reload();
             } else {
                 alert("Signup failed!");
             }
@@ -41,7 +41,7 @@ export const SignupView = () => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                minLength="3"
+                minLength="5"
                 />
             </label>
             <label>

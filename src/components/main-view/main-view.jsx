@@ -17,9 +17,9 @@ export const MainView = () => {
             return;
         }
 
-        fetch("https://movie-api-es93.herokuapp.com/movies"), {
-            headers: { Authorisation: `Bearer ${token}`}
-        }
+        fetch("https://movie-api-es93.herokuapp.com/movies", {
+            headers: { Authorization: `Bearer ${token}`}
+        })
         .then((response) => response.json())
         .then((data) => {
             const moviesFromApi = data.map((movie) => {
@@ -39,7 +39,10 @@ export const MainView = () => {
                 };
             });
             setMovies(moviesFromApi);
-        });
+        })
+        .catch((error) => {
+            console.log(error)
+        })
     }, [token]);
 
     if(!user) {
