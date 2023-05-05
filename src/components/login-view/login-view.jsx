@@ -15,7 +15,7 @@ export const LoginView = ({ onLoggedIn }) => {
         fetch("https://movie-api-es93.herokuapp.com/login", {
             method: "POST",
             headers: {
-                "Conten-Type": "application/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
         })
