@@ -78,7 +78,6 @@ export const MainView = () => {
             {movies.map((movie) => (
                 <Col className="mb-5" key={movie.id} md={4}>
                     <MovieCard
-                        
                         movie={movie}
                         onMovieClick={(newSelectedMovie) => {
                             setSelectedMovie(newSelectedMovie);
@@ -90,7 +89,6 @@ export const MainView = () => {
         )}
 
         {user && (
-            
             <Col md={1}>
                 <Button
                     variant="secondary"
@@ -103,7 +101,6 @@ export const MainView = () => {
                     Logout
                 </Button>
             </Col>
-            
         )}
     </Row>
     );
