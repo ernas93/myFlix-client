@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
-import { FormControl } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import { MovieCard } from "../movie-card/movie-card";
 
-export const ProfileView = ({ user, token, setUser }) => {
+export const ProfileView = ({ user, token, setUser, movies }) => {
     const [username, setUsername] = useState(user.Username);
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState(user.Email);
     const [birthday, setBirthday] = useState(user.BirthDate);
+    const favoriteMovies = movies.filter((movie) => {
+        return user.FavoriteMovies.includes(movie.id)
+    })
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -39,6 +42,8 @@ export const ProfileView = ({ user, token, setUser }) => {
             setUser(data);
         })
     };
+
+    console.log(favoriteMovies)
 
     return (
         <>
@@ -90,8 +95,16 @@ export const ProfileView = ({ user, token, setUser }) => {
                         required
                     />
                 </Form.Group>
-                <Button variant="primary" type="submit">Update my account</Button>
+                <Button variant="primary" type="submit">Save changes</Button>
             </Form>
+        </Row>
+        <Row>
+            <h3>Favorite movies:</h3>
+            {favoriteMovies.map((movie) => (
+                <Col className="mb-5" key={movie.id} md={4}>
+                    <MovieCard movie={movie}></MovieCard>
+                </Col>
+            ))}
         </Row>
         </>
     )

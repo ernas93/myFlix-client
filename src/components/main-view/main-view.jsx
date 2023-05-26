@@ -107,6 +107,7 @@ export const MainView = () => {
                                 user={user}
                                 token={token}
                                 setUser={setUser}
+                                movies={movies}
                                 />
                             </Col>
                         )}</>
@@ -125,7 +126,10 @@ export const MainView = () => {
                             <Col md={8} style={{ border: "1px solid black" }}>
                                 <MovieView
                                     style={{ border: "1px solid green" }}
-                                    movies={movies} 
+                                    movies={movies}
+                                    user={user}
+                                    setUser={setUser}
+                                    token={token}
                                 />
                             </Col>
                         )}
