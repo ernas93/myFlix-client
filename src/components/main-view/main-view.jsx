@@ -18,6 +18,12 @@ export const MainView = () => {
     const [movies, setMovies] = useState([]);
     // const [selctedMovie, setSelectedMovie] = useState(null);
 
+    const onLogout = () => {
+        setUser(null);
+        setToken(null);
+        localStorage.clear();
+    }
+
     useEffect(() => {
         if (!token) {
             return;
@@ -108,6 +114,7 @@ export const MainView = () => {
                                 token={token}
                                 setUser={setUser}
                                 movies={movies}
+                                onLogout={onLogout}
                                 />
                             </Col>
                         )}</>
@@ -163,11 +170,7 @@ export const MainView = () => {
                 <Col md={1}>
                     <Button
                         variant="secondary"
-                        onClick={() => {
-                            setUser(null);
-                            setToken(null);
-                            localStorage.clear();
-                        }}
+                        onClick={onLogout}
                     >
                         Logout
                     </Button>
