@@ -8,6 +8,7 @@ import { ProfileView } from "../profile-view/profile-view";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
 import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 
 export const MainView = () => {
@@ -16,6 +17,7 @@ export const MainView = () => {
     const [user, setUser] = useState(storedUser? storedUser : null);
     const [token, setToken] = useState(storedToken? storedToken : null);
     const [movies, setMovies] = useState([]);
+    const [filter, setFilter] = useState("");
     // const [selctedMovie, setSelectedMovie] = useState(null);
 
     const onLogout = () => {
@@ -150,15 +152,26 @@ export const MainView = () => {
                         <>
                         {!user ? (
                             <Navigate to="/login" replace />
-                        ) : movies.length === 0 ? (
-                            <Col>This list is empty!</Col>
                         ) : (
                             <>
-                            {movies.map((movie) => (
-                                <Col className="mb-5" key={movie.id} md={4}>
-                                    <MovieCard movie={movie} />
-                                </Col>
-                            ))}
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Search..."
+                                    value={filter}
+                                    onChange={(e) => setFilter(e.target.value)}
+                                />
+                                
+                                {movies.length === 0 ? (
+                                    <Col>This list is empty!</Col>
+                                ) : (
+                                    movies.filter(
+                                            (movie) => movie.title.toLowerCase().includes(filter.toLowerCase())
+                                        ).map((movie) => (
+                                        <Col className="mb-5" key={movie.id} md={4}>
+                                            <MovieCard movie={movie} />
+                                        </Col>
+                                    ))
+                                )}
                             </>
                         )}
                         </>
