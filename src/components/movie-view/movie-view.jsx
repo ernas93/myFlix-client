@@ -52,7 +52,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
     const movie = movies.find((m) => m.id === movieId);
 
     return (
-        <Card className="h-100 bg-secondary text-white" >
+        <Card className="mt-1 mb-1 h-100 bg-secondary text-white" >
             <Card.Img variant="top" src={movie.image}/>
             <Card.Body>
                 <Card.Title>{movie.title}</Card.Title>

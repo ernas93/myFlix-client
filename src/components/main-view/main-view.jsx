@@ -137,7 +137,6 @@ export const MainView = () => {
                 ) : (
                   <Col md={8} >
                     <MovieView
-                      style={{ border: "1px solid green" }}
                       movies={movies}
                       user={user}
                       setUser={setUser}
@@ -157,13 +156,14 @@ export const MainView = () => {
                   <Navigate to="/login" replace />
                 ) : (
                   <>
-                    <Form.Control
-                      type="text"
-                      placeholder="Search..."
-                      value={filter}
-                      onChange={(e) => setFilter(e.target.value)}
-                    />
-
+                    <Row className="mt-1 mb-1">
+                        <Form.Control
+                        type="text"
+                        placeholder="Search..."
+                        value={filter}
+                        onChange={(e) => setFilter(e.target.value)}
+                        />
+                    </Row>
                     {movies.length === 0 ? (
                       <Col>This list is empty!</Col>
                     ) : (
@@ -185,14 +185,6 @@ export const MainView = () => {
             }
           />
         </Routes>
-
-        {user && (
-          <Col md={1}>
-            <Button variant="secondary" onClick={onLogout}>
-              Logout
-            </Button>
-          </Col>
-        )}
       </Row>
     </BrowserRouter>
   );
