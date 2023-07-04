@@ -69,11 +69,11 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
         <h1 className="text-white">Profile</h1>
         <Row>
             <Col className="text-white">
+                <h3 className="text-white">Your profile details</h3>
                 <div>Username: {user.Username}</div>
                 <div>Email: {user.Email}</div>
             </Col>
-        </Row>
-        <Row>
+            <Col>
             <h3 className="text-white">Update your profile information here.</h3>
             <Form onSubmit={handleSubmit} className="text-white">
                 <Form.Group controlId="formUsername">
@@ -116,6 +116,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
                 </Form.Group>
                 <Button variant="primary" type="submit">Save changes</Button>
             </Form>
+            </Col>
         </Row>
         <Row className="text-white">
             <h3>Favorite movies:</h3>

@@ -21,6 +21,7 @@ export const MainView = () => {
   // const [selctedMovie, setSelectedMovie] = useState(null);
 
   const onLogout = () => {
+    console.log('hi');
     setUser(null);
     setToken(null);
     localStorage.clear();
@@ -63,10 +64,7 @@ export const MainView = () => {
     <BrowserRouter>
       <NavigationBar
         user={user}
-        onLoggedOut={() => {
-          setUser(null);
-          setToken(null);
-        }}
+        onLoggedOut={onLogout}
       />
       <Row className="justify-content-md-center">
         <Routes>
