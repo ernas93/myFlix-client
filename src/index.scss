@@ -1,7 +1,14 @@
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "variables.scss";
 
 $color: steelblue;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
 
 .my-flix {
     color: $color;
 }
+
+.bg-main {
+    background-color: #012E40;
+}
+

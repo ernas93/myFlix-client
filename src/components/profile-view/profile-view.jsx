@@ -66,16 +66,16 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
 
     return (
         <>
-        <h1>Profile</h1>
+        <h1 className="text-white">Profile</h1>
         <Row>
-            <Col>
+            <Col className="text-white">
                 <div>Username: {user.Username}</div>
                 <div>Email: {user.Email}</div>
             </Col>
         </Row>
         <Row>
-            <h3>Update your profile information here.</h3>
-            <Form onSubmit={handleSubmit}>
+            <h3 className="text-white">Update your profile information here.</h3>
+            <Form onSubmit={handleSubmit} className="text-white">
                 <Form.Group controlId="formUsername">
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
@@ -117,7 +117,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
                 <Button variant="primary" type="submit">Save changes</Button>
             </Form>
         </Row>
-        <Row>
+        <Row className="text-white">
             <h3>Favorite movies:</h3>
             {favoriteMovies.map((movie) => (
                 <Col className="mb-5" key={movie.id} md={4}>
