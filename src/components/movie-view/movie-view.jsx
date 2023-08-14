@@ -25,9 +25,11 @@ export const MovieView = ({ movies, user, setUser, token }) => {
                 return response.json()
             }
         }).then((data) => {
-            setIsFavorite(false);
-            localStorage.setItem("user", JSON.stringify(data));
-            setUser(data);
+            if (data) {
+                setIsFavorite(false);
+                localStorage.setItem("user", JSON.stringify(data));
+                setUser(data);
+            }
         })
     };
 
@@ -43,9 +45,11 @@ export const MovieView = ({ movies, user, setUser, token }) => {
                 return response.json()
             }
         }).then((data) => {
-            setIsFavorite(true);
-            localStorage.setItem("user", JSON.stringify(data));
-            setUser(data);
+            if (data) {
+                setIsFavorite(true);
+                localStorage.setItem("user", JSON.stringify(data));
+                setUser(data);
+            }
         })
     }
 

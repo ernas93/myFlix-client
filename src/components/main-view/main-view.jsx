@@ -6,7 +6,6 @@ import { SignupView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { ProfileView } from "../profile-view/profile-view";
 import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -18,10 +17,8 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
   const [filter, setFilter] = useState("");
-  // const [selctedMovie, setSelectedMovie] = useState(null);
 
   const onLogout = () => {
-    console.log('hi');
     setUser(null);
     setToken(null);
     localStorage.clear();
